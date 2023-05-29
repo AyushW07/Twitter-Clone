@@ -1,0 +1,17 @@
+.hs{
+    color: white;
+    text-align: center;
+}
+
+/* *{
+    background-color: black;
+} */
+
+.input{
+    display: flex;
+    flex-direction: column;
+}
+
+.name-input{
+    margin: 5px;
+}
