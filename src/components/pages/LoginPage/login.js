@@ -29,7 +29,7 @@ const SignIn = () => {
 
   function onclick() {
     localStorage.setItem("email", email);
-    alert("Data Stored Successfully");
+   
     if (data.length < 3) {
       setusererr(true);
     } else {
