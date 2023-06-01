@@ -8,24 +8,25 @@ import Alert from "@mui/material/Alert";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+
 export default function Details() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [useEmail, setUseEmail] = useState("");
+  const [ nevigate,setnevigate]=useState(false)
+  const [alert,setalert]=useState(false)
 
-  const [nevigate, setnevigate] = useState(false);
-  const [alert, setalert] = useState(false);
-
-  const nevigates = useNavigate();
-
-  function navigate() {
-    nevigates("/login");
-  }
+  const nevigates=useNavigate()
 
   const Storage = localStorage.getItem("signupData")
     ? JSON.parse(localStorage.getItem("signupData"))
     : [];
+
+
+    function navigate(){
+      nevigates("/login")
+    }
 
   const handleToggle = (e) => {
     e.preventDefault();
@@ -40,18 +41,15 @@ export default function Details() {
     };
 
     localStorage.setItem("signupData", JSON.stringify([...Storage, temp]));
+   
+   const regex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
-    const email_regex =
-      /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-
-    if (
-      name === "" ||
-      (phone.length < 10 && email_regex.test(email) === false)
-    ) {
-      setnevigate(false);
-      setalert(true);
-    } else {
-      setnevigate(true);
+    if( name==="" || phone.length<10 && regex.test(email)===false  ) {
+      setnevigate(false) 
+      setalert(true)
+    }
+    else{
+      setnevigate(true)
     }
   }
 
@@ -67,7 +65,7 @@ export default function Details() {
           placeholder="Name"
           onChange={(e) => setName(e.target.value)}
           sx={{
-            width: "25rem",
+            width: "30rem",
             marginBottom: "20px",
           }}
         />
@@ -79,8 +77,7 @@ export default function Details() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             sx={{
-              width: "25rem",
-              height: "2.5rem",
+              width: "30rem",
             }}
           />
         </div>
@@ -92,32 +89,25 @@ export default function Details() {
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
             sx={{
-              width: "25rem",
-              height: "2.5rem",
+              width: "30rem",
             }}
           />
         </div>
       )}
-      <a href="/" onClick={handleToggle} className={styles.emailtoggle}>
+      <a href="/" onClick={handleToggle} className="emailtoggle">
         {useEmail ? "Use phone instead" : "Use email instead"}
       </a>
-      <div>
-        <DetailsText />
-      </div>
-      <div>
-        <GroupedSelect />
-      </div>
-      <div className={styles.btn}>
-        <SignUpButton handleSignup={handleSignup} />
-        {nevigate ? navigate() : " "}
-        {alert ? (
-          <Alert severity="info">
-            <strong>Fill Properly.</strong>
-          </Alert>
-        ) : (
-          " "
-        )}
-      </div>
+      <DetailsText />
+      <GroupedSelect />
+      <br />
+      <br />
+      <SignUpButton handleSignup={handleSignup} />
+      { nevigate ? ( navigate()) :" "
+     }
+     {
+      alert ?  <Alert severity="info">
+      <strong>fill properly.</strong></Alert> : " "
+     }
     </div>
   );
 }
