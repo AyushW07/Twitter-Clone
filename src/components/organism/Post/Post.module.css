@@ -47,3 +47,14 @@
   margin-bottom: 5px;
   margin-top: 0;
 }
+.tweets{
+  color:grey;
+  position: relative;
+  right: 90px ;
+  bottom: 20px;
+}
+.likes{
+  position: relative;
+  right: 100px;
+  
+}

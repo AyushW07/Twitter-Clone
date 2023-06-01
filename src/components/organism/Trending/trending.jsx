@@ -48,14 +48,19 @@ function TrendingPage() {
   const id = open ? 'simple-popover' : undefined;
 
 
+  const[deletes,setdeletes]=useState(Trend)
 
-  function handledelete(key){
-    let newArr = [...deletes]
-    newArr.splice(key,1)
-    setdeletes([...newArr])
+
+
+  function handledelete(i){
+    const updatedlist=[...deletes];
+    updatedlist.splice(i)
+    setdeletes(updatedlist)
+
+   
 
   }
-  const[deletes,setdeletes]=useState(Trend)
+  
   return (
 
     <div className={styles.container}>
@@ -67,7 +72,7 @@ function TrendingPage() {
             <h4 className={styles.h4}>{el.hashtag}</h4>
             <p className={styles.p}>{el.tweets}</p>
           </div>
-          <button  className={ styles.remove} onClick={handleClick}><MoreHorizIcon className={styles.trending_icon} /></button>
+          <button  className={ styles.remove}  onClick={handleClick}><MoreHorizIcon className={styles.trending_icon} /></button>
           <Popover
           id={id}
           open={open}
@@ -78,7 +83,7 @@ function TrendingPage() {
             horizontal: 'left',
           }}
         >
-          <Typography  style={ { backgroundColor: "white"}} sx={{ p: 2 }}><button className={styles.trendingbtn} onClick={handledelete}> Not interested in this</button><br/><button className={styles.trendingbtn} onClick={handledelete}>This trend is harmful or spammy</button></Typography>
+        <Typography  style={{ backgroundColor: "white"}} sx={{ p: 2 }}><button className={styles.trendingbtn} onClick={()=>handledelete(i)}> Not interested in this</button><br/><button className={styles.trendingbtn}  onClick={()=>handledelete(i)}>This trend is harmful or spammy</button></Typography>
         </Popover>
         </div>
         
