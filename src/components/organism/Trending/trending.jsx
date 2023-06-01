@@ -83,7 +83,7 @@ function TrendingPage() {
             horizontal: 'left',
           }}
         >
-        <Typography  style={{ backgroundColor: "white"}} sx={{ p: 2 }}><button className={styles.trendingbtn} onClick={()=>handledelete(i)}> remove last </button><br/></Typography>
+        <Typography  style={{ backgroundColor: "white"}} sx={{ p: 2 }}><button className={styles.trendingbtn} onClick={()=>handledelete(i)}> Not interested in this</button><br/><button className={styles.trendingbtn}  onClick={()=>handledelete(i)}>This trend is harmful or spammy</button></Typography>
         </Popover>
         </div>
         
