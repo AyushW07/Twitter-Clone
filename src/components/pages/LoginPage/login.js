@@ -9,14 +9,31 @@ import styles from "./login.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import Alert from "@mui/material/Alert";
 import { useState } from "react";
+import { useSetRecoilState } from "recoil";
+import { emailShowHome } from "../../localStorage/localStorage";
 
 const SignIn = () => {
   const navigate = useNavigate();
-
+  const allUsersFromLocal = JSON.parse(localStorage.getItem("user"));
+  const emailShownOnHome = useSetRecoilState(emailShowHome);
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [usererr, setusererr] = useState(false);
   const [data, setdata] = useState([]);
   const [alert, setalert] = useState(false);
+
+  // function handleLogin() {
+  //   if (
+  //     allUsersFromLocal.find(
+  //       (ele) => ele.email === email && ele.password === password
+  //     )
+  //   ) {
+  //     localStorage.setItem("isUserLoggedIn", "true");
+  //     emailShownOnHome(email);
+  //     localStorage.setItem("currentUser", email);
+  //     navigate("/");
+  //   }
+  // }
 
   function forgothandle() {
     navigate("/forgot");
@@ -29,17 +46,6 @@ const SignIn = () => {
 
   function handlenavigate() {
     navigate("/password");
-  }
-
-  function onclick() {
-    localStorage.setItem("email", email);
-
-    if (data.length < 10) {
-      setusererr(false);
-      setalert(true);
-    } else {
-      setusererr(true);
-    }
   }
 
   return (
@@ -63,13 +69,26 @@ const SignIn = () => {
             onChange={userHandle}
             style={{ width: "19rem", marginBottom: "30px" }}
             id="outlined-basic"
-            label="Phone , Email or Username"
+            label={
+              /^\w+([\.-]?\w+)*@(?:\w+\.)+(?:com|in)$/.test(email) ? (
+                <p style={{ color: "#00acee" }}>Email</p>
+              ) : (
+                <p style={{ color: "black" }}>Email</p>
+              )
+            }
             variant="outlined"
             value={email}
           />
+          {/^\w+([\.-]?\w+)*@(?:\w+\.)+(?:com|in)$/.test(email) ? (
+            ""
+          ) : (
+            <h5 style={{ margin: "-12px 0 -12px 0", color: "red" }}>
+              Enter a valid Email
+            </h5>
+          )}
 
           <Button
-            onClick={onclick}
+            // onClick={handleLogin}
             className={styles.btn}
             style={{
               textTransform: "none",

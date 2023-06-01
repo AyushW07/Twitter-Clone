@@ -13,7 +13,7 @@ function Widget() {
         <br />
       </div>
       <TrendingPage />
-      <WhoToFollow/>
+      <WhoToFollow />
     </div>
   );
 }

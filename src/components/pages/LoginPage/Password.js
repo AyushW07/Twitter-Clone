@@ -4,7 +4,7 @@ import { RxCross2 } from "react-icons/rx";
 import TextField from "@mui/material/TextField";
 import styles from "./Password.module.css";
 import Button from "@mui/material/Button";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Alert from "@mui/material/Alert";
 
@@ -13,6 +13,17 @@ export default function Password() {
 
   const [password, setpassword] = useState("");
   const [message, setmessage] = useState(false);
+
+  useEffect(() => {
+    let timer;
+    if (message) {
+      timer = setTimeout(() => {
+        setmessage(false);
+      }, 3000);
+    }
+
+    return () => clearTimeout(timer);
+  }, [message]);
 
   function handleChange(e) {
     setpassword(e.target.value);
