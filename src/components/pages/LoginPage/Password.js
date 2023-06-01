@@ -4,10 +4,11 @@ import TextField from "@mui/material/TextField";
 import styles from "./Password.module.css";
 import Button from "@mui/material/Button";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Alert from "@mui/material/Alert";
 
 export default function Password() {
+  const nevigate=useNavigate()
   const [password, setpassword] = useState("");
   const [message, setmessage] = useState(false);
   function handleChange(e) {
@@ -18,7 +19,11 @@ export default function Password() {
     if (!validation.test(password)) {
       setmessage(true);
     }
-  }
+  else{
+    nevigate("/home")
+
+  }}
+    
 
   return (
     <div
@@ -64,7 +69,7 @@ export default function Password() {
               variant="outlined"
             />
           </div>
-          <Link to=""> Forgot Password?</Link>
+          <Link to="/forgot"> Forgot Password?</Link>
           <Button
             onClick={handleClick}
             className={styles.btn}
@@ -82,11 +87,9 @@ export default function Password() {
             <Alert severity="info">
               Password Invalid <strong>Please Try Again</strong>
             </Alert>
-          ) : (
-            ""
-          )}
+          ) : " "}
         </div>
       </div>
     </div>
-  );
-}
+  );}
+

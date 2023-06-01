@@ -6,9 +6,10 @@ import reportWebVitals from "./reportWebVitals";
 import Home from "./components/pages/Homepage/home";
 import SignIn from "./components/pages/LoginPage/login";
 import SignUp from "./components/pages/RegisterPage/register";
+import ForgotPassword from "./components/pages/LoginPage/ForgotPassword";
 import Details from "./components/pages/Details/Details";
 import Password from "./components/pages/LoginPage/Password";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom"; 
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
     path :"/password",
     element  : <Password/>
   },
+  {
+    path : "/forgot",
+    element : < ForgotPassword/>
+  }
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

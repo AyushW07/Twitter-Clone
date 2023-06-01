@@ -13,8 +13,14 @@ import { useState } from "react";
 const SignIn = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
-  const [usererr, setusererr] = useState(true);
+  const [usererr, setusererr] = useState(false);
   const [data, setdata] = useState([]);
+  const[alert,setalert]=useState(false)
+
+
+  function forgothandle(){
+    navigate("/forgot")
+  }
 
   function userHandle(e) {
     setdata(e.target.value);
@@ -28,10 +34,12 @@ const SignIn = () => {
   function onclick() {
     localStorage.setItem("email", email);
 
-    if (data.length < 3) {
-      setusererr(true);
-    } else {
+    if (data.length < 10) {
       setusererr(false);
+      setalert(true)
+
+    } else {
+      setusererr(true);
     }
   }
 
@@ -74,6 +82,7 @@ const SignIn = () => {
             Next
           </Button>
           <Button
+          onClick={forgothandle}
             className={styles.btn}
             variant="outlined"
             sx={{
@@ -90,12 +99,14 @@ const SignIn = () => {
             <Link to="/register">Sign up</Link>
           </div>
           {usererr ? (
-            <Alert severity="info">
-              <strong>Sorry, we could not find your account.</strong>
-            </Alert>
-          ) : (
             handlenavigate()
+          ) : (
+            " "
           )}
+{
+  alert ? <Alert severity="info">
+  <strong>fill properly.</strong></Alert> : " "
+}
         </div>
       </div>
     </div>
