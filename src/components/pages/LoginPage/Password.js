@@ -10,7 +10,6 @@ import Alert from "@mui/material/Alert";
 
 export default function Password() {
   const navigate = useNavigate();
-
   const [password, setpassword] = useState("");
   const [message, setmessage] = useState(false);
 
