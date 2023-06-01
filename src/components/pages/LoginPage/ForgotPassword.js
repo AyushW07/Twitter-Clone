@@ -4,38 +4,57 @@ import TextField from "@mui/material/TextField";
 import styles from "./ForgotPassword.module.css";
 import Button from "@mui/material/Button";
 import { useState } from "react";
-import { FaTwitter } from "react-icons/fa";
-import { RxCross2 } from "react-icons/rx";
 
 export default function ForgotPassword() {
   const [password, setpassword] = useState("");
   const [message, setmessage] = useState("");
-
+  
   function handleChange(e) {
     setpassword(e.target.value);
   }
   return (
-    <div>
-      <div className={styles.page}>
-        <div className={styles.Icon}>
-          <RxCross2 />
-
-          <FaTwitter color="#50b7f5" />
+    <div
+      style={{
+        height: "100vh",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "rgba(0, 0, 0, 0.4)",
+      }}
+    >
+      <div
+        style={{
+          width: "550px",
+          height: "600px",
+          margin: "0 auto",
+          height: "600px",
+          background: "white",
+          borderRadius: "20px",
+        }}
+      >
+        <div style={{ textAlign: "center" }}>
+          <TwitterIcon
+            sx={{ fontSize: 40 }}
+            style={{ color: "rgb(29, 155, 240)" }}
+          />
         </div>
-
-        <div className={styles.body}>
+        <div
+          style={{
+            width: "440px",
+            margin: "0 auto",
+            position: "relative",
+            height: "500px",
+          }}
+        >
           <h1>Find your Twitter account</h1>
-          <p>
-            Enter the email, phone number, or username associate with your
-            account to change your password
-          </p>
+          Enter the email, phone number, or username associate with your account
+          to change your password
           <div className={styles.textinput}>
             <TextField
               id="filled-multiline-flexible"
               fullWidth
               label="Email, phone number, or username"
               variant="filled"
-              style={{ width: "19rem", marginTop: "30px" }}
             />
           </div>
           <Button className={styles.btn} variant="contained">

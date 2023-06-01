@@ -1,39 +1,31 @@
-.widget {
-  flex: 0.3;
+.widget{
+    flex: 0.3;
 }
 
-.widget_input {
-  border: none;
-  display: flex;
-  align-items: center;
-  background-color: var(--twitter-background);
-  padding: 10px;
-  border-radius: 20px;
-  margin-top: 10px;
-  margin-left: 20px;
+.widget_input{
+    display: flex;
+    align-items: center;
+    background-color: var(--twitter-background);
+    padding: 10px;
+    border-radius: 20px;
+    margin-top: 10px;
+    margin-left: 20px;
 }
 
-.widget_input > input {
-  position: sticky;
-  border: none;
-  background-color: var(--twitter-background);
+.widget_input > input{
+    border: none;
+    background-color: var(--twitter-background);
 }
 
-.widget_searchIcon {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  color: gray;
-  align-items: center;
-}
-.widget_input > input:focus {
-  outline: none;
+.widget_searchIcon{
+    color: gray;
+    align-items: center;
 }
 
-.widget_container {
-  margin-top: 15px;
-  margin-left: 20px;
-  padding: 20px;
-  background-color: #f5f8fa;
-  border-radius: 20px;
+.widget_container{
+    margin-top: 15px;
+    margin-left: 20px;
+    padding: 20px;
+    background-color: #f5f8fa;
+    border-radius: 20px;
 }

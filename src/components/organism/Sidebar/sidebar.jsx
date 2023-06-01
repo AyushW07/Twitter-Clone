@@ -11,16 +11,11 @@ import ListAltIcon from "@mui/icons-material/ListAlt";
 import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import { Button } from "@mui/material";
-import Logout from "../../atoms/button/logout/logout";
 
 function Sidebar() {
-  function handleLogout() {
-    console.log(Logout);
-  }
-
   return (
     <div className={styles.sidebar}>
-      <TwitterIcon className={styles.sidebar_twitter_logo} />
+      <TwitterIcon className={styles.sidebar_twitter_logo}/>
       <SidebarOption active Icon={HomeIcon} text="Home" />
       <SidebarOption Icon={SearchIcon} text="Explore" />
       <SidebarOption Icon={NotificationsNoneIcon} text="Notification" />
@@ -39,15 +34,14 @@ function Sidebar() {
           border: "none",
           color: "white",
           fontWeight: "900",
-          textTransform: "inherit",
-          borderRadius: "30px",
-          height: "50px",
-          marginTop: "20px",
+          textTransform:"inherit",
+          borderRadius:"30px",
+          height:"50px",
+          marginTop:"20px",
         }}
       >
         Tweet
       </Button>
-      <Logout onLogout={handleLogout} />
     </div>
   );
 }

@@ -21,10 +21,6 @@
   border: none;
 }
 
-.tweetbox_input > input:focus {
-  outline: none;
-}
-
 .tweetbox_inputImage {
   border: none;
   padding: 10px;

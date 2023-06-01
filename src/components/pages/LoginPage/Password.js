@@ -56,6 +56,7 @@ export default function Password() {
           </div>
           <Button
             onClick={() => {
+              navigate("/home");
               handleClick();
             }}
             className={styles.btn}

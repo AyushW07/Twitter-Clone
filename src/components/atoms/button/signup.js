@@ -8,6 +8,7 @@ export default function SignUpButton({ handleSignup }) {
       <Button
         variant="outlined"
         onClick={() => {
+          navigate("/login");
           handleSignup();
         }}
         sx={{
