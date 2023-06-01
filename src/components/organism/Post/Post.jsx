@@ -14,7 +14,7 @@ function Post({ name, userName, verified, text, image, avatar }) {
 
   function handleupdate(){
   settweet(!tweet)
-  }
+  }  
   return (
     <div className={styles.post}>
       <div className={styles.post_avatar}>
