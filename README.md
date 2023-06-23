@@ -16,8 +16,10 @@ This project is a Twitter clone, aiming to replicate the core functionalities an
 ## Tech Stack
 
 - ReactJs
+- Recoil
 - MUI Library
-- 
+- React Icons
+- React Router
 
 ## Deployment Link
 
