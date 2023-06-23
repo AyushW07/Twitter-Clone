@@ -14,6 +14,7 @@ const SignIn = () => {
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
+  const [showLogin,setShowLogin]=useState(true)
   const [usererr, setusererr] = useState(false);
   const [data, setdata] = useState([]);
   const [alert, setalert] = useState(false);
@@ -41,12 +42,17 @@ const SignIn = () => {
       setusererr(true);
     }
   }
+  function handleClick(){
+    setShowLogin(false)
+  }
 
   return (
     <div>
-      <div className={styles.page}>
+      {
+        showLogin && 
+        <div className={styles.page}>
         <div className={styles.Icon}>
-          <RxCross2 />
+          <RxCross2 onClick={handleClick} />
 
           <FaTwitter color="#50b7f5" />
         </div>
@@ -113,6 +119,7 @@ const SignIn = () => {
           </div>
         </div>
       </div>
+      }
     </div>
   );
 };

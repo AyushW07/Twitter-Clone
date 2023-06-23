@@ -47,3 +47,13 @@
   margin-bottom: 5px;
   margin-top: 0;
 }
+
+.iconContainer {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.iconContainer span {
+  margin-left: 5px;
+}
